@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "./sortStyle.scss";
+import App from './components/App';
+// create react component
+/*const App = () => {
+	const numOfBars = 10;
+    return (
+        <div className = "container">
+        	<h3 className = "text-center">Sorting Visualizer</h3>
+        	<Bars numOfBars = {numOfBars}></Bars>
+        </div>
+    );
+}*/
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// take the react component and show it on the screen 
+ReactDOM.render(
+    <App />,
+    document.querySelector("#root")
+)

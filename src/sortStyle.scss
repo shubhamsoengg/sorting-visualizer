@@ -1,0 +1,122 @@
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+$grey1: #444;
+$purple1: #9966CC;
+$blue: #0080ff;
+$blue2: #3b4483;
+$white: #fff;
+$black1: #333;
+$brown: #b4a796;
+$green: #008081;
+
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m-#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px !important;
+        }
+
+        .p-#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px !important;
+        }
+    }
+}
+
+body {
+    color: $black1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-wrapper {
+    .numBars-wrapper {
+        label {
+            margin-right: 10px;
+        }
+    }
+
+    .app-title {
+        text-transform: uppercase;
+        color: $grey1;
+        text-decoration: underline;
+    }
+
+    // @keyframes example {
+    //     from {
+    //         height: 0;
+    //     }
+
+    //     to {
+    //         height: 410px;
+    //     }
+    // }
+
+    .bars-section {
+        display: flex;
+        align-items: flex-end;
+        height: 410px;
+        // animation-name: example;
+        // animation-duration: 1s;
+
+        .bar {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            width: 3px;
+            // background-color: $purple1;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+
+    .sort-btn-section {
+        .sort-btn {
+            border: 1px solid $grey1;
+            background: none;
+            border-radius: 10px;
+            padding: 3px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &:hover {
+                color: $white;
+                background: $grey1;
+            }
+
+            &.reset {
+                background: $grey1;
+                color: $white;
+            }
+        }
+    }
+
+    .speed-slider-section {
+        .rangeslider-horizontal {
+            height: 5px;
+            margin: 10px 0;
+
+            .rangeslider__fill {
+                background: $grey1;
+            }
+
+            .rangeslider__handle {
+                width: 15px;
+                height: 15px;
+
+                &:after {
+                    content: none;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .speed-text {
+            font-size: 12px;
+        }
+    }
+}
